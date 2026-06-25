@@ -1,21 +1,22 @@
 from flask import Flask, jsonify
 import random
+import os
 
 app = Flask(__name__)
 
-with open("generated.txt", "r", encoding="utf-8") as f:
+# Get the absolute path to the directory where this file is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Read files using absolute paths
+with open(os.path.join(BASE_DIR, "..", "generated.txt"), "r", encoding="utf-8") as f:
     GEN = [line.strip() for line in f if line.strip()]
 
-with open("words.txt", "r", encoding="utf-8") as f:
+with open(os.path.join(BASE_DIR, "..", "words.txt"), "r", encoding="utf-8") as f:
     WORDS = [line.strip() for line in f if line.strip()]
 
 @app.route("/")
 def home():
     return "Polish words API is running"
-
-@app.route("/favicon.ico")
-def favicon():
-    return "", 204
 
 @app.route("/pl/gen")
 def gen():
@@ -27,6 +28,5 @@ def real():
     words = random.sample(WORDS, min(10, len(WORDS)))
     return jsonify({"words": words})
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
-    
+# This is the key part for Vercel – export the app object
+# DO NOT call app.run() here! 
