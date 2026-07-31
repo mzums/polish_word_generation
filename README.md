@@ -56,3 +56,6 @@ training on ~48k words
 
 dataset based on:  
 https://raw.githubusercontent.com/ostr00000/jezyk-polski-slowniki/refs/heads/master/class_a.txt
+
+## Additional credits
+This project largely follows makemore from Andrej Karpathy's [*Zero to Hero*](https://karpathy.ai/zero-to-hero.html) series, although it also contains a lot of my comments, explanations, experiments and the API.
