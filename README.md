@@ -59,3 +59,22 @@ https://raw.githubusercontent.com/ostr00000/jezyk-polski-slowniki/refs/heads/mas
 
 ## Additional credits
 This project largely follows makemore from Andrej Karpathy's [*Zero to Hero*](https://karpathy.ai/zero-to-hero.html) series, although it also contains a lot of my comments, explanations, experiments and the API.
+
+## Local setup
+1. Clone the repo  
+  `git clone https://github.com/mzums/polish_word_generation`
+2. Enter the directory  
+  `cd polish_word_generation`
+3. Create conda evironment  
+  `conda create --name polish_word_generation python=3.12`
+4. Activate the environment  
+  `conda activate polish_word_generation`
+5. Install dependencies  
+  `pip install -r requirements.txt`
+6. Play with the notebooks
+7. Generate words with `wavenet/wavenet3.ipynb`
+8. Run the API  
+    `python api/app.py`
+8. Check results  
+    `http://127.0.0.1:5001/pl/gen`  
+    `http://127.0.0.1:5001/pl/real`
